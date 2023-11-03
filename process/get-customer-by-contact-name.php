@@ -1,0 +1,60 @@
+<?php
+
+require_once $processdir.'/nrr-connect.php';
+
+if(isset($_GET['namesearch']))
+
+    {
+      
+      $FirstNamevaluetoSearch = $_GET['FirstName'];
+      $LastNamevaluetoSearch = $_GET['LastName'];
+      $FirstNameLower = strtolower($FirstNamevaluetoSearch);
+      $LastNameLower = strtolower($LastNamevaluetoSearch);
+    
+      $query = "SELECT `opentapsdb`.`PARTY`.`PARTY_ID` AS `PARTY_ID`,
+      `opentapsdb`.`PERSON`.`FIRST_NAME` AS `FirstName`,
+      `opentapsdb`.`PERSON`.`LAST_NAME` AS `LastName`,
+      `opentapsdb`.`PARTY_GROUP`.`GROUP_NAME` AS `AccountName`,
+      cast(`opentapsdb`.`PARTY`.`CREATED_DATE` as date) AS `DateCreated`,
+      `opentapsdb`.`PARTY`.`STATUS_ID` AS `Status`,
+      `opentapsdb`.`PARTY_CONTACT_MECH`.`CONTACT_MECH_ID` AS `ContactMech`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`TO_NAME` AS `ToName`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`ATTN_NAME` AS `AttnName`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`ADDRESS1` AS `Address1`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`ADDRESS2` AS `Address2`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`CITY` AS `City`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`STATE_PROVINCE_GEO_ID` AS `State`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`POSTAL_CODE` AS `PostalCode`,
+      `opentapsdb`.`POSTAL_ADDRESS`.`COUNTRY_GEO_ID` AS `Country`
+      
+      from `opentapsdb`.`PARTY`
+      
+      left join `opentapsdb`.`PERSON`
+         on `opentapsdb`.`PARTY`.`PARTY_ID` = `opentapsdb`.`PERSON`.`PARTY_ID`
+      
+      left join `opentapsdb`.`PARTY_GROUP`
+         on `opentapsdb`.`PARTY`.`PARTY_ID` = `opentapsdb`.`PARTY_GROUP`.`PARTY_ID`
+
+      left join `opentapsdb`.`PARTY_CONTACT_MECH`
+         on `opentapsdb`.`PARTY_CONTACT_MECH`.`PARTY_ID` = `opentapsdb`.`PARTY`.`PARTY_ID`
+
+      left join `opentapsdb`.`CONTACT_MECH`
+         on `opentapsdb`.`CONTACT_MECH`.`CONTACT_MECH_ID` = `opentapsdb`.`PARTY_CONTACT_MECH`.`CONTACT_MECH_ID`
+
+      left join `opentapsdb`.`POSTAL_ADDRESS`
+         on `opentapsdb`.`POSTAL_ADDRESS`.`CONTACT_MECH_ID` = `opentapsdb`.`CONTACT_MECH`.`CONTACT_MECH_ID`
+         
+      where Lower(`opentapsdb`.`PERSON`.`FIRST_NAME`) like '%$FirstNameLower%'
+        and Lower(`opentapsdb`.`PERSON`.`LAST_NAME`) like '%$LastNameLower%'
+
+        and (`opentapsdb`.`PARTY`.`STATUS_ID` = 'PARTY_ENABLED' or isnull(`opentapsdb`.`PARTY`.`STATUS_ID`))
+        
+        and isnull(`opentapsdb`.`PARTY_CONTACT_MECH`.`THRU_DATE`)
+
+        and `opentapsdb`.`CONTACT_MECH`.`CONTACT_MECH_TYPE_ID` = 'POSTAL_ADDRESS'";
+    
+      $search_result = mysqli_query($mysqli, $query);
+      $linecount = mysqli_num_rows($search_result);
+    }
+
+    ?>

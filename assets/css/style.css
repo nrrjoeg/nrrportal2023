@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+* {box-sizing: border-box;}
+
+/* unvisited link */
+a:link {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #551A8B;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+    text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: #EE0000;
+    text-decoration: none;
+}
+
+table, tr, th, td
+{
+   border-collapse: collapse;
+}
+
+th, td
+{
+   padding: 6px;
+   text-align: center;
+   border-bottom: 1px solid #ddd;
+}
+
+th
+{
+   background-color: #ADCF3F;
+   color: rgb(59,47,4);
+}
+
+tbody tr:nth-child(odd) {
+   background-color: white;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#logoheader{
+  padding: 20px 16px 10px 20px;
+}
+
+/* Container only for the header */
+
+.headerbox{
+    clear: left;
+    background-color: #f2f2f2;
+    padding-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    color: #446600;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-family: 'Ubuntu', Helvetica, sans-serif;
+}
+
+/* Highlight each result container */
+
+.resultbox {
+   background-color: #F2F2F2;
+   padding-left: 16px;
+   padding-right: 16px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   float: left;
+   margin: 10px;
+   font-family: Ubuntu, Helvetica, sans-serif;
+}
+
+.resultbox-header{
+  color: rgb(59,47,4);
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+
+  /* Sets active link to NRR green background and black text */
+
+  background-color: #ADCF3F;
+  color: black;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+.navbar {
+  overflow: visible;
+  background-color: #e9e9e9;
+  }
+
+.navbar a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.show {
+  display: block;
+}
+
+/* This is the overall box that contains the vertical menu */
+
+.vertical-menu {
+  padding: 15px;
+  background-color: #ADCF3F;
+  font-size: 18px;
+  float: left;
+  width: 100px;
+  clear: left;
+}
+
+.vertical-menu a {
+  color: #564536;
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #dadad2;
+}
+
+.vertical-menu a.active {
+  background-color: rgb(59, 47, 4);
+  color: white;
+}
+
+.vertical-category
+{
+  margin-top: 0px;
+  background-color: white;
+  font-size: 22px;
+  float: left;
+  width: 210px;
+  clear: left;
+}
+
+.vertical-category-title {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e9e9e9;
+  color: #446600;
+  font-family: 'Ubuntu', Helvetica, sans-serif;
+}
+
+/* Time and Date container borrows from .vertical-category-title */
+
+.time-and-date-container {
+  width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e9e9e9;
+  color: #564536;
+  font-size: 18px;
+  font-family: 'Ubuntu', Helvetica, sans-serif;
+}
+
+.vertical-category-items {
+  background-color: #ADCF3F;
+  font-size: 16px;
+}
+
+.vertical-category-items a {
+  color: #564536;
+  display: block;
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+
+.vertical-category-items a:hover {
+  background-color: #dadad2;
+}
+
+.vertical-category-items a.active {
+  background-color: rgb(59, 47, 4);
+  color: white;
+}
+
+/* content-container holds the main contents
+   of each page */
+
+.content-container{
+  float: left;
+  width: 900px;
+  font-size: 15px;
+  padding-left: px;
+}
+
+.penguin-graphic{
+  padding: 20px 16px 10px 35px;
+  clear: left;
+}
+
+/* Gives the Customer Search the modern feel of blank instead of box */
+
+.search-choices{
+  margin-top: 0px;
+  margin-left: 40px;
+  padding: 10px;
+  font: 16px Ubuntu, Helvetica, sans-serif;
+}
+
+.search-choices input[type="text"],
+.search-choices input[type="date"],
+.search-choices input[type="datetime"],
+.search-choices input[type="email"],
+.search-choices input[type="number"],
+.search-choices input[type="search"],
+.search-choices input[type="time"],
+.search-choices input[type="url"],
+.search-choices input[type="password"],
+.search-choices textarea,
+.search-choices select 
+{
+ box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ outline: none;
+ display: block;
+ width: 100%;
+ padding: 7px;
+ border: none;
+ border-bottom: 1px solid #ddd;
+ background: transparent;
+ margin-bottom: 2px;
+ font: 16px Ubuntu, Helvetica, sans-serif;
+ height: 40px;
+}
+
+/* Presentation Container is used for
+   showing customer and order details */
+
+.presentation-container{
+    float: left;
+    background-color: #e9e9e9;
+    margin-top: 20px;
+    margin-left: 70px;
+    padding: 10px;
+    font: 16px 'Ubuntu', sans-serif;
+ }
+
+ .presentation-container-piechart{
+  float: left;
+  background-color: #e9e9e9;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0px;
+  font: 16px 'Ubuntu', sans-serif;
+}
+
+ .presentation-container-title{
+    background-color: #ADCF3F;
+    font: 20px 'Ubuntu', sans-serif;
+    color: #564536;
+    padding: 10px;
+ }
+
+ .orders-container {
+    float: left;
+    background-color: #e9e9e9;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 10px;
+    font: 16px 'Ubuntu', sans-serif;
+ }
+
+ /* Holds the Sarasota Weather Information at the top of the page */
+
+ .weather-container{
+     /* background-color: #f2f2f2; */
+     margin-left: 15px;
+     font-size: 22px;
+     color: #446600;
+     font-family: 'Ubuntu', Helvetica, sans-serif;
+     float: left;
+     padding-top: 0px;
+     padding-bottom: 0px;
+     padding-left: 35px;
+     padding-right: 25px;
+ }
+ 
+ /* Primarily to hold the Nature's Rite Icon */
+
+ .left-icon-container{
+    float: left;
+ }
+
+ /* Primarily to hold the Opentaps icon */
+
+ .right-icon-container{
+   float: right;
+ }
+
+ /* Container to hold pretty place pictures for the Weather */
+ 
+ .place-image-container{
+   float: left;
+ }
+
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
