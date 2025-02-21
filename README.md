@@ -8,7 +8,9 @@ Note that succcessful use of this code requires an SSH tunnel to Blackbird. To c
 
 ssh -L 3336:blackbird:3306 blackbird
 
-This will create a tunnel on local port 3336 to MySQL on Blackbird.
+Blackbird's IP address is 172.105.152.174. This must be added to the local /etc/hosts. Blackbird has the MySQL database running all the time. Connection is ssh and completely secure.
+
+This will create a tunnel on local port 3336 to MySQL on Blackbird. The tunnel has to remain open. The Website will die if the tunnel is closed.
 
 This repository is meant to be used as a Website. On Ubuntu, this means it needs to be dropped into /var/www/html. Clone the repository into Documents, which leaves a directory called nrrportal.
 
